@@ -20,6 +20,18 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 group :development, :test do
   gem 'byebug'
   gem 'sqlite3'
+  gem "better_errors"
+  gem "binding_of_caller"
+
+  gem "rspec-rails"
+  gem "factory_girl_rails"
+  gem "capybara"
+  gem "fakeweb"
+
+  gem "guard"
+  gem "guard-rspec"
+
+  gem "rb-fsevent"
 end
 
 group :development do
