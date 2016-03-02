@@ -2,11 +2,11 @@ class CreateContests < ActiveRecord::Migration
   def change
     create_table :contests do |t|
       t.string :name
-      t.integer :product_id
+      t.integer :product_id,           limit: 9
       t.datetime :start_date
       t.datetime :end_date
       t.integer :max_results
-      t.integer :order_id
+      t.integer :order_id,           limit: 9
 
       t.timestamps
     end

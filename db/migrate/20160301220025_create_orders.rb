@@ -5,7 +5,7 @@ class CreateOrders < ActiveRecord::Migration
       t.string :email
       t.string :first_name
       t.string :last_name
-      t.integer :shopify_order_id
+      t.integer :shopify_order_id,           limit: 9
       t.datetime :order_date
       t.float :total
       t.integer :line_item_count
