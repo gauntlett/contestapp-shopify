@@ -1,3 +1,5 @@
+# Read about factories at https://github.com/thoughtbot/factory_girl
+
 FactoryGirl.define do
   factory :account do
     shopify_account_url "MyString"

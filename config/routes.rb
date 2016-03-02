@@ -1,5 +1,4 @@
 Contestapp::Application.routes.draw do
-
   resources :orders do
     collection do
       get 'import'
@@ -20,7 +19,7 @@ Contestapp::Application.routes.draw do
   end
 
   get "dashboard/index"
-  #post "create_contest" => 'dashboard#create_contest'
+  post "create_contest" => 'dashboard#create_contest'
 
   root 'dashboard#index'
   # The priority is based upon order of creation: first created -> highest priority.

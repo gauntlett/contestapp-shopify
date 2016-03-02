@@ -1,3 +1,6 @@
+
+# Read about factories at https://github.com/thoughtbot/factory_girl
+
 FactoryGirl.define do
   factory :variant do
     product_id 1
@@ -8,6 +11,6 @@ FactoryGirl.define do
     sku "MyString"
     barcode "MyString"
     price 1.5
-    last_shopify_sync "2016-02-29 19:20:05"
+    last_shopify_sync "2014-05-18 18:37:05"
   end
 end
