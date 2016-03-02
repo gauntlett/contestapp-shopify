@@ -11,29 +11,36 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160302010615) do
+ActiveRecord::Schema.define(version: 20160302213411) do
 
   create_table "accounts", force: :cascade do |t|
     t.string   "shopify_account_url"
-    t.string   "shopify_api_key"
     t.string   "shopify_password"
-    t.string   "shopify_shared_secret"
-    t.datetime "created_at",            null: false
-    t.datetime "updated_at",            null: false
+    t.datetime "created_at",                    null: false
+    t.datetime "updated_at",                    null: false
+    t.integer  "shopify_shop_id",     limit: 8
+    t.string   "shopify_shop_name"
+    t.string   "shop_owner"
+    t.string   "email"
   end
+
+  add_index "accounts", ["email"], name: "index_accounts_on_email"
+  add_index "accounts", ["shopify_account_url"], name: "index_accounts_on_shopify_account_url"
 
   create_table "contests", force: :cascade do |t|
     t.string   "name"
-    t.integer  "product_id",           limit: 8
+    t.integer  "product_id",   limit: 8
     t.datetime "start_date"
     t.datetime "end_date"
     t.integer  "max_results"
-    t.integer  "order_id",           limit: 8
-    t.datetime "created_at",   null: false
-    t.datetime "updated_at",   null: false
+    t.integer  "order_id",     limit: 8
+    t.datetime "created_at",             null: false
+    t.datetime "updated_at",             null: false
     t.string   "product_name"
+    t.integer  "account_id",   limit: 8
   end
 
+  add_index "contests", ["account_id"], name: "index_contests_on_account_id"
   add_index "contests", ["order_id"], name: "index_contests_on_order_id"
 
   create_table "order_items", force: :cascade do |t|
@@ -63,7 +70,10 @@ ActiveRecord::Schema.define(version: 20160302010615) do
     t.string   "financial_status"
     t.datetime "created_at",                 null: false
     t.datetime "updated_at",                 null: false
+    t.integer  "account_id",       limit: 8
   end
+
+  add_index "orders", ["account_id"], name: "index_orders_on_account_id"
 
   create_table "products", force: :cascade do |t|
     t.string   "name"
@@ -71,7 +81,10 @@ ActiveRecord::Schema.define(version: 20160302010615) do
     t.datetime "last_shopify_sync"
     t.datetime "created_at",                   null: false
     t.datetime "updated_at",                   null: false
+    t.integer  "account_id",         limit: 8
   end
+
+  add_index "products", ["account_id"], name: "index_products_on_account_id"
 
   create_table "variants", force: :cascade do |t|
     t.integer  "product_id",         limit: 8

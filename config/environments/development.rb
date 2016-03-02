@@ -1,4 +1,9 @@
 Rails.application.configure do
+
+  SHOPIFY_API_KEY = "88296b21429c6fa07b5bf09a84f77152"
+  SHOPIFY_SHARED_SECRET = "20a59fb6e6e2272ca18d3fcb2d57e434"
+  DOMAIN = "threebythree-clone.myshopify.com"
+
   # Settings specified here will take precedence over those in config/application.rb.
 
   # In the development environment your application's code is reloaded on

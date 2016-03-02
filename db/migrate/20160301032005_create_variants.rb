@@ -1,8 +1,8 @@
 class CreateVariants < ActiveRecord::Migration
   def change
     create_table :variants do |t|
-      t.integer :product_id,           limit: 8
-      t.integer :shopify_variant_id,           limit: 8
+      t.integer :product_id,           limit: => 8
+      t.integer :shopify_variant_id,           limit: => 8
       t.string :option1
       t.string :option2
       t.string :option3
