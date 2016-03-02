@@ -24,11 +24,11 @@ ActiveRecord::Schema.define(version: 20160302010615) do
 
   create_table "contests", force: :cascade do |t|
     t.string   "name"
-    t.integer  "product_id",           limit: 9
+    t.integer  "product_id",           limit: 8
     t.datetime "start_date"
     t.datetime "end_date"
     t.integer  "max_results"
-    t.integer  "order_id",           limit: 9
+    t.integer  "order_id",           limit: 8
     t.datetime "created_at",   null: false
     t.datetime "updated_at",   null: false
     t.string   "product_name"
@@ -37,10 +37,10 @@ ActiveRecord::Schema.define(version: 20160302010615) do
   add_index "contests", ["order_id"], name: "index_contests_on_order_id"
 
   create_table "order_items", force: :cascade do |t|
-    t.integer  "order_id",           limit: 9
-    t.integer  "variant_id",         limit: 9
-    t.integer  "shopify_product_id", limit: 9
-    t.integer  "shopify_variant_id", limit: 9
+    t.integer  "order_id",           limit: 8
+    t.integer  "variant_id",         limit: 8
+    t.integer  "shopify_product_id", limit: 8
+    t.integer  "shopify_variant_id", limit: 8
     t.float    "unit_price"
     t.integer  "quantity"
     t.datetime "created_at",                   null: false
@@ -52,11 +52,11 @@ ActiveRecord::Schema.define(version: 20160302010615) do
   add_index "order_items", ["variant_id"], name: "index_order_items_on_variant_id"
 
   create_table "orders", force: :cascade do |t|
-    t.string   "number",           limit: 9
+    t.string   "number",           limit: 8
     t.string   "email"
     t.string   "first_name"
     t.string   "last_name"
-    t.integer  "shopify_order_id", limit: 9
+    t.integer  "shopify_order_id", limit: 8
     t.datetime "order_date"
     t.float    "total"
     t.integer  "line_item_count"
@@ -67,15 +67,15 @@ ActiveRecord::Schema.define(version: 20160302010615) do
 
   create_table "products", force: :cascade do |t|
     t.string   "name"
-    t.integer  "shopify_product_id", limit: 9
+    t.integer  "shopify_product_id", limit: 8
     t.datetime "last_shopify_sync"
     t.datetime "created_at",                   null: false
     t.datetime "updated_at",                   null: false
   end
 
   create_table "variants", force: :cascade do |t|
-    t.integer  "product_id",         limit: 9
-    t.integer  "shopify_variant_id", limit: 9
+    t.integer  "product_id",         limit: 8
+    t.integer  "shopify_variant_id", limit: 8
     t.string   "option1"
     t.string   "option2"
     t.string   "option3"
